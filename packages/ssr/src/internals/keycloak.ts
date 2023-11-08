@@ -39,7 +39,7 @@ export const getKeycloakInstance = (
   const isServerCheck = isServer()
 
   if (recreate || (!keycloakInstance && !isServerCheck)) {
-    keycloakInstance = Keycloak(keycloakConfig)
+    keycloakInstance = new Keycloak(keycloakConfig)
   }
 
   return !isServerCheck ? keycloakInstance : getKeycloakStub(persistor!)
